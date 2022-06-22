@@ -35,9 +35,14 @@ class MainActivity : AppCompatActivity() {
         binding.drink2Name.text = drink2.name
         binding.drink3Name.text = drink3.name
 
-        binding.drink1Price.text = drink1.price.toString()
-        binding.drink2Price.text = drink2.price.toString()
-        binding.drink3Price.text = drink3.price.toString()
+        val price1 = "%.2f".format(drink1.price)
+        val price2 = "%.2f".format(drink2.price)
+        val price3 = "%.2f".format(drink3.price)
+
+
+        binding.drink1Price.text = price1
+        binding.drink2Price.text = price2
+        binding.drink3Price.text = price3
 
         binding.drink1Count.text = drink1.count.toString()
         binding.drink2Count.text = drink2.count.toString()
@@ -71,6 +76,19 @@ class MainActivity : AppCompatActivity() {
             binding.drink3Count.text = drink3.count.toString()
             var deciStellen = "%.2f".format(bill)
             binding.totalPrice.text = deciStellen
+        }
+        // ResetFunktion
+        // TODO Schreibe hier deinen Code
+        binding.resetButton.setOnClickListener {
+            drink1.count = 0
+            binding.drink1Count.text = 0.toString()
+            drink2.count = 0
+            binding.drink2Count.text = 0.toString()
+            drink3.count = 0
+            binding.drink3Count.text = 0.toString()
+        //Total Price Reset
+            binding.totalPrice.text = 0.toString()
+            bill = 0f
         }
     }
 
